@@ -11,7 +11,7 @@
       placeholder="Search disasters..."
       class="search-input"
     />
-    <a class="btn btn-primary" href="/create">Add new</a>
+    <a class="btn btn-primary" href="create">Add new</a>
   </div>
   <div class="table-responsive">
     <table id="disasterTable" class="table">
@@ -38,17 +38,9 @@
           <td>{{ disaster.impact }}</td>
           <td>{{ disaster.status }}</td>
           <td>
-            <a
-              href="{% url 'update_disaster' disaster.pk %}"
-              class="btn btn-warning"
-              >Edit</a
-            >
-            <a
-              href="{% url 'delete_disaster' disaster.pk %}"
-              class="btn btn-danger"
-              onclick="return confirm('Are you sure you want to delete this disaster?');"
-              >Delete</a
-            >
+            <a href="{% url 'update_disaster' disaster.pk %}" class="btn btn-warning custom-btn">Edit</a>
+<a href="{% url 'delete_disaster' disaster.pk %}" class="btn btn-danger custom-btn" onclick="return confirm('Are you sure you want to delete this disaster?');">Delete</a>
+
           </td>
         </tr>
         {% empty %}

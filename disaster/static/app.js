@@ -1,5 +1,5 @@
 const searchInput = document.getElementById('searchInput');
-const tableRows = document.querySelectorAll('#disasterTable tbody tr'); // Updated to 'disasterTable'
+const tableRows = document.querySelectorAll('#disasterTable tbody tr');
 
 const rowsPerPage = 10; // Adjust this value to change the number of rows per page
 let currentPage = 1;
