@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h1>Resource List</h1>
+
+<div class="search-create-container">
+  <input type="text" id="searchInput" placeholder="Search resources..." class="search-input" />
+  <a class="btn btn-primary" href="{% url 'create_resource' %}">Add new</a>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Quantity</th>
+      <th>Location</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for resource in resources %}
+    <tr>
+      <td>{{ resource.name }}</td>
+      <td>{{ resource.type }}</td>
+      <td>{{ resource.quantity }}</td>
+      <td>{{ resource.location }}</td>
+      <td>
+        <a href="{% url 'update_resource' resource.id %}" class="btn btn-warning">Edit</a>
+        <a href="{% url 'delete_resource' resource.id %}" class="btn btn-danger"
+           onclick="return confirm('Are you sure you want to delete this resource?');">Delete</a>
+      </td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="5">No resources found.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

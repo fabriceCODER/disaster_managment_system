@@ -1,0 +1,44 @@
+from disaster.models import Disaster
+from random import choice, randint
+from decimal import Decimal
+from datetime import date
+import random
+
+# Define sample data
+disaster_types = ["Earthquake", "Flood", "Hurricane", "Wildfire", "Tornado", "Volcanic Eruption", "Drought", "Tsunami", "Landslide"]
+severities = ["low", "moderate", "high", "critical"]
+countries = ["Rwanda", "Kenya", "Uganda", "Tanzania", "South Africa", "Nigeria", "Ghana", "Ethiopia", "Egypt", "Morocco"]
+status_choices = ["ongoing", "resolved", "monitoring"]
+causes = ["natural", "human-induced", "unknown"]
+
+# Create 20 Disaster objects
+disasters = []
+for _ in range(500000):
+    disaster_id = ''.join(random.choice("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789") for _ in range(10))
+    disaster_type = choice(disaster_types)
+    country = choice(countries)
+    city = f"City_{randint(1, 100)}"
+    severity = choice(severities)
+    cause = choice(causes)
+    status = choice(status_choices)
+    affected_population = randint(100, 100000)
+    estimated_damage = Decimal(f"{randint(100000, 5000000)}.99")
+    disaster_date = date(randint(2000, 2023), randint(1, 12), randint(1, 28))
+
+    # Create Disaster object with the generated data
+    disaster = Disaster(
+        disaster_id=disaster_id,
+        disaster_type=disaster_type,
+        country=country,
+        city=city,
+        severity=severity,
+        cause=cause,
+        status=status,
+        affected_population=affected_population,
+        estimated_damage=estimated_damage,
+        disaster_date=disaster_date
+    )
+    disasters.append(disaster)
+
+# Bulk create disaster objects in the database
+Disaster.objects.bulk_create(disasters)

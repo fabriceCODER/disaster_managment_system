@@ -1,0 +1,279 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-size: 13px;
+  font-weight: normal;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+/* Style the top navigation bar with gradient */
+.topnav {
+  overflow: hidden;
+  background: linear-gradient(90deg, #0057b4, #3388f8); /* Gradient color */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+/* Style the topnav links */
+.topnav a {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+a {
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Space between menu items and logo */
+.menu {
+  display: flex;
+  flex-grow: 1;
+}
+
+/* Style the logo text */
+.logo {
+  color: #f2f2f2;
+  padding: 14px 16px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Style the content */
+.content {
+  padding: 20px;
+  min-height: calc(100vh - 104px);
+  background-color: #fff;
+  margin: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Style the footer with gradient */
+.footer {
+  background: linear-gradient(90deg, #3388f8, #0057b4); /* Gradient color */
+  padding: 10px;
+  text-align: center;
+}
+
+/* Style the table */
+.table-responsive {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background-color: #f0f0f0;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Make the table responsive */
+@media only screen and (max-width: 768px) {
+  table {
+    width: 100%;
+  }
+  th, td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* Make the table headers sticky */
+thead tr {
+  position: sticky;
+  top: 0;
+  background-color: #f0f0f0;
+}
+
+.search-create-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 999;
+  padding: 10px 0;
+}
+
+.search-input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s;
+}
+
+.search-input:focus {
+  border-color: #3388f8;
+  outline: none;
+}
+
+.btn-warning {
+  color: rgb(243, 180, 44);
+  border-radius: 0;
+}
+
+.btn-danger {
+  color: rgb(255, 0, 0);
+  border-radius: 0;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #0057b4, #2d90fa); /* Gradient color */
+  color: white;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(90deg, #0057b4, #3388f8); /* Gradient color */
+}
+
+.btn-warning:hover {
+  background-color: #ffd500;
+}
+
+.btn-danger:hover {
+  background-color: #ff0000;
+}
+
+.pagination {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  bottom: 0;
+  background-color: white;
+  z-index: 999;
+  padding: 10px 0;
+}
+
+.btn {
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  margin-left: -1px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* General button hover effect */
+.btn:hover {
+  color: white;
+}
+
+/* Form elements styling */
+form {
+  max-width: 600px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="number"],
+form select,
+form textarea {
+  width: calc(100% - 16px);
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus,
+form input[type="number"]:focus,
+form select:focus,
+form textarea:focus {
+  border-color: #3388f8;
+  outline: none;
+}
+
+form select {
+  padding: 8px;
+  background: white;
+  appearance: none;
+}
+
+form textarea {
+  resize: vertical;
+}
+
+form .form-group {
+  margin-bottom: 16px;
+}
+
+form .btn {
+  padding: 10px 20px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #0057b4, #2d90fa); /* Gradient color */
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+form .btn:hover {
+  background: linear-gradient(90deg, #0057b4, #3388f8); /* Gradient color */
+}
+
+form .btn-secondary {
+  background-color: #6c757d;
+}
+
+form .btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+/* Ensure full width for form elements on small screens */
+@media only screen and (max-width: 600px) {
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="password"],
+  form input[type="number"],
+  form select,
+  form textarea {
+    width: 100%;
+  }
+}

@@ -1,0 +1,96 @@
+{% extends 'layout.html' %} 
+
+{% block content %}
+<h1>Disaster List</h1>
+
+<div class="">
+  <div class="search-create-container">
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search disasters..."
+      class="search-input"
+    />
+    <a class="btn btn-primary" href="/create">Add new</a>
+  </div>
+  <div class="table-responsive">
+    <table id="disasterTable" class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Type</th>
+          <th>Date</th>
+          <th>Location</th>
+          <th>Magnitude</th>
+          <th>Impact</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for disaster in disasters %}
+        <tr>
+          <td>{{ disaster.id }}</td>
+          <td>{{ disaster.type }}</td>
+          <td>{{ disaster.date|date:"Y-m-d" }}</td>
+          <td>{{ disaster.location }}</td>
+          <td>{{ disaster.magnitude }}</td>
+          <td>{{ disaster.impact }}</td>
+          <td>{{ disaster.status }}</td>
+          <td>
+            <a
+              href="{% url 'update_disaster' disaster.pk %}"
+              class="btn btn-warning"
+              >Edit</a
+            >
+            <a
+              href="{% url 'delete_disaster' disaster.pk %}"
+              class="btn btn-danger"
+              onclick="return confirm('Are you sure you want to delete this disaster?');"
+              >Delete</a
+            >
+          </td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="8">No disasters available.</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div id="pagination" class="pagination">
+      <div class="step-links">
+          {% if disasters.has_previous %}
+          <button class="btn btn-primary"><a href="?page=1">&laquo; first</a></button>
+          <button class="btn btn-primary"><a href="?page={{ disasters.previous_page_number }}">previous</a></button>
+          {% endif %}
+
+          <span class="current">
+              Page {{ disasters.number }} of {{ disasters.paginator.num_pages }}.
+          </span>
+
+          {% if disasters.has_next %}
+          <button class="btn btn-primary"><a href="?page={{ disasters.next_page_number }}">next</a></button>
+          <button class="btn btn-primary"><a href="?page={{ disasters.paginator.num_pages }}">last &raquo;</a></button>
+          {% endif %}
+      </div>
+  </div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
