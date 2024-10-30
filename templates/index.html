@@ -5,69 +5,109 @@
 <div class="welcome-container">
     <h2>Welcome to the Disaster Management System</h2>
     <p>
-        <b>Disaster Management System</b> is an application designed to streamline and enhance the management and tracking of disaster incidents, response efforts, and resource allocation within the country. Our platform provides real-time updates, efficient resource management, and collaboration tools to ensure that communities are prepared and resilient in the face of disasters.
+        <strong>Disaster Management System</strong> is an application designed to streamline and enhance the management and tracking of disaster incidents, response efforts, and resource allocation within the country. Our platform provides real-time updates, efficient resource management, and collaboration tools to ensure that communities are prepared and resilient in the face of disasters.
     </p>
-    <p>
-        Key features of the system include:
+    <div class="features">
+        <h3>Key Features:</h3>
         <ul>
-            <li>Incident Reporting: Quickly report disaster incidents for immediate attention.</li>
-            <li>Resource Allocation: Efficiently manage and allocate resources where they are needed most.</li>
-            <li>Response Coordination: Facilitate communication and collaboration among response teams.</li>
-            <li>Data Analytics: Analyze data to improve disaster preparedness and response strategies.</li>
+            <li><strong>Incident Reporting:</strong> Quickly report disaster incidents for immediate attention.</li>
+            <li><strong>Resource Allocation:</strong> Efficiently manage and allocate resources where they are needed most.</li>
+            <li><strong>Response Coordination:</strong> Facilitate communication and collaboration among response teams.</li>
+            <li><strong>Data Analytics:</strong> Analyze data to improve disaster preparedness and response strategies.</li>
         </ul>
-    </p>
-    <p>
+    </div>
+    <p class="mission">
         Join us in our mission to improve disaster management and ensure the safety of our communities!
     </p>
+    <a href="{% url 'contact' %}" class="cta-button">Contact Us</a>
 </div>
 
 <style>
+    /* General Reset */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
     body, html {
-        height: 100%; /* Set height to 100% for body and html */
-        margin: 0; /* Remove default margin */
-        font-family: 'Roboto', sans-serif; /* Ensure consistent font */
-        color: white; /* Set default text color */
+        height: 100%;
+        font-family: 'Roboto', sans-serif;
+        color: #333;
     }
 
     .welcome-container {
-        height: 100%; /* Fill the entire height */
-        width: 100%; /*Fill the entire width*/
-        display: flex; /* Use flexbox for vertical centering */
-        flex-direction: column; /* Arrange content vertically */
-        justify-content: center; /* Center content vertically */
-        align-items: center; /* Center content horizontally */
-        padding: 20px; /* Add padding for spacing */
-        background: linear-gradient(90deg, #ff5733, #33aaff); /* Gradient background */
-       
-        animation: fadeIn 0.5s; /* Fade-in animation */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 40px;
+        background: linear-gradient(90deg, #4b79a1, #283e51);
+        color: white;
+        animation: fadeIn 0.7s ease-in-out;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        max-width: 700px;
+        margin: 40px auto;
     }
 
     h2 {
-        font-size: 36px; /* Increased font size for header */
-        text-align: center; /* Center header */
+        font-size: 2.5rem;
+        margin-bottom: 15px;
     }
 
-    p {
-        font-size: 18px; /* Increased font size for paragraphs */
-        line-height: 1.6; /* Line height for better readability */
-        text-align: center; /* Center align text */
-        max-width: 600px; /* Limit width for readability */
+    p, .mission {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin: 20px 0;
+    }
+
+    .features h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
     }
 
     ul {
-        text-align: left; /* Left align list */
-        padding-left: 20px; /* Indent list */
-        max-width: 600px; /* Limit width for readability */
+        list-style-type: none;
+        padding-left: 0;
+        text-align: left;
+    }
+
+    ul li {
+        font-size: 1rem;
+        margin: 10px 0;
+    }
+
+    ul li::before {
+        content: "✓ ";
+        color: #4ecdc4;
+        font-weight: bold;
+    }
+
+    .cta-button {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 24px;
+        background-color: #4ecdc4;
+        color: #333;
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+        background-color: #3fbfa7;
     }
 
     @keyframes fadeIn {
         from {
             opacity: 0;
-            transform: translateY(-10px); /* Start above */
+            transform: translateY(-10px);
         }
         to {
             opacity: 1;
-            transform: translateY(0); /* End at original position */
+            transform: translateY(0);
         }
     }
 </style>

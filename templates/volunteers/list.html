@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Volunteer List</title>
+</head>
+<body>
+    <h2>List of Volunteers</h2>
+    <ul>
+        {% for volunteer in volunteers %}
+            <li>{{ volunteer.name }} - {{ volunteer.skills }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
