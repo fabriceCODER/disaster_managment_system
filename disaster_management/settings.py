@@ -131,19 +131,18 @@ STATIC_ROOT = BASE_DIR / 'frontendfiles'
 
 STATIC_URL = 'static/'
 
-#Authentication and authorization
-# LOGIN_URL = '/login/'  # Redirect unauthorized users to the login page
-# LOGIN_REDIRECT_URL = '/'  # Redirect users here after a successful login
-# LOGOUT_REDIRECT_URL = '/'
-
 # Email submission configurations
 
+# settings.py
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'ishf8779@gmail.com'
-EMAIL_HOST_PASSWORD = ('fab12345!')
+EMAIL_HOST_PASSWORD = 'fab12345!'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+CONTACT_EMAIL = 'ishf8779@gmail.com'
+
 
 
 

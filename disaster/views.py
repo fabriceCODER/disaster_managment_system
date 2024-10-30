@@ -1,6 +1,4 @@
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
-from django.template import loader
 from django.shortcuts import render, redirect
 from .models import Disaster  # Change to your Disaster model
 from .forms import DisasterForm  # Change to your Disaster form
@@ -14,8 +12,8 @@ def register(request):
         form = RegisterForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)  # Automatically log in after registration
-            return redirect("index")  # Redirect to homepage or login
+            login(request, user)
+            return redirect("index")
     else:
         form = RegisterForm()
     return render(request, "register.html", {"form": form})

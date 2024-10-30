@@ -3,24 +3,32 @@ from django.core.mail import send_mail
 from django.conf import settings
 from .forms import ContactForm
 
-def contact_view(request):
-    if request.method == 'POST':
+
+def contact(request):
+    if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
-            # Send an email notification
-            subject = f"Contact Form Submission from {form.cleaned_data['name']}"
-            message = f"Name: {form.cleaned_data['name']}\nEmail: {form.cleaned_data['email']}\nMessage: {form.cleaned_data['message']}"
-            from_email = settings.EMAIL_HOST_USER  # Your email address
-            recipient_list = ['your_recipient_email@example.com']  # Change to your desired recipient
-
+            # Send email logic
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
             try:
-                send_mail(subject, message, from_email, recipient_list)
-                return redirect('contact_success')  # Redirect to a success page
+                send_mail(
+                    f"Contact Form Submission from {name}",
+                    message,
+                    settings.DEFAULT_FROM_EMAIL,
+                    [settings.CONTACT_EMAIL],
+                )
+                return redirect('contact:success')
             except Exception as e:
-                # Handle error (log it, notify user, etc.)
-                print(f"Error sending email: {e}")
-
+                # Optionally log the error
+                print(e)
+                form.add_error(None, "There was an error sending your message. Please try again.")
     else:
         form = ContactForm()
 
     return render(request, 'contact/contact.html', {'form': form})
+
+
+def success(request):
+    return render(request, 'contact/success.html')
