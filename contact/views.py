@@ -12,6 +12,7 @@ def contact(request):
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
+            role = form.cleaned_data['role']
             try:
                 send_mail(
                     f"Contact Form Submission from {name}",

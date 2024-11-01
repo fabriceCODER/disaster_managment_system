@@ -131,6 +131,9 @@ STATIC_ROOT = BASE_DIR / 'frontendfiles'
 
 STATIC_URL = 'static/'
 
+#Authentication and authorization
+
+
 # Email submission configurations
 
 # settings.py
