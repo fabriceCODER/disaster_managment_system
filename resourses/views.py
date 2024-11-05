@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import user_passes_test
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Resource
 from .forms import ResourceForm
@@ -59,3 +60,22 @@ def delete_resource(request, pk):
         resource.delete()
         return redirect("resource_list")
     return render(request, "resources/delete_resourse.html", {"resource": resource})
+
+
+# Check if user is in the Admin group
+def is_admin(user):
+    return user.groups.filter(name='Admin').exists()
+
+# Check if user is in the Volunteer group
+def is_volunteer(user):
+    return user.groups.filter(name='Volunteer').exists()
+
+# Restrict view to Admin users
+@user_passes_test(is_admin)
+def admin_only_view(request):
+    pass
+
+# Restrict view to Volunteer users
+@user_passes_test(is_volunteer)
+def volunteer_only_view(request):
+    pass
